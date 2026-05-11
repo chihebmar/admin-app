@@ -1,0 +1,20 @@
+<header class="navbar">
+  <button class="hamburger" type="button" (click)="menuClick.emit()">
+    <i class="pi pi-bars"></i>
+  </button>
+
+  <div class="navbar-right">
+    <button class="lang-circle"  [class.active]="currentLang === 'fr'" (click)="switchLanguage('fr')" >
+      <img src="/flag-fr.webp" alt="French" />
+     
+    </button>
+
+    <button class="lang-circle" [class.active]="currentLang === 'en'" (click)="switchLanguage('en')">
+      <img src="/flag-en.webp" alt="English" />
+    </button>
+
+    <button class="profile-circle">
+      <i class="pi pi-user"></i>
+    </button>
+  </div>
+</header>

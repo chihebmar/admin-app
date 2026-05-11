@@ -1,0 +1,15 @@
+<div class="modal-backdrop" *ngIf="visible" (click)="close.emit()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>{{ title }}</h2>
+
+      <button type="button" class="close-btn" (click)="close.emit()">
+        <i class="pi pi-times"></i>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

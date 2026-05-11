@@ -1,0 +1,52 @@
+<div class="profile-page" *ngIf="user">
+  <div class="profile-container">
+    <div class="profile-header">
+      <div>
+        <h1>{{ 'PROFILE.TITLE' | translate }}</h1>
+        <p>{{ 'PROFILE.SUBTITLE' | translate }}</p>
+      </div>
+
+      <span class="status-badge">
+        {{ getStatusLabel() }}
+      </span>
+    </div>
+
+    <div class="avatar-section">
+      <div class="avatar">
+        {{ user.firstName?.charAt(0) }}{{ user.lastName?.charAt(0) }}
+      </div>
+
+      <div>
+        <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+        <p>{{ user.email }}</p>
+      </div>
+    </div>
+
+    <form class="profile-form">
+      <div class="form-group">
+        <label>{{ 'FORM.FIRSTNAME' | translate }}</label>
+        <input type="text" [value]="user.firstName" readonly />
+      </div>
+
+      <div class="form-group">
+        <label>{{ 'FORM.LASTNAME' | translate }}</label>
+        <input type="text" [value]="user.lastName" readonly />
+      </div>
+
+      <div class="form-group">
+        <label>{{ 'FORM.EMAIL' | translate }}</label>
+        <input type="email" [value]="user.email" readonly />
+      </div>
+
+      <div class="form-group">
+        <label>{{ 'FORM.ROLE' | translate }}</label>
+        <input type="text" [value]="getRoleLabel()" readonly />
+      </div>
+
+      <div class="form-group">
+        <label>{{ 'FORM.STATUS' | translate }}</label>
+        <input type="text" [value]="getStatusLabel()" readonly />
+      </div>
+    </form>
+  </div>
+</div>

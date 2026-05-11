@@ -1,0 +1,33 @@
+.search-box {
+  width: 100%;
+  max-width: 420px;
+  height: 46px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+
+  i {
+    color: #6b7280;
+    font-size: 14px;
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #111827;
+    background: transparent;
+  }
+}
+
+.clear-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}

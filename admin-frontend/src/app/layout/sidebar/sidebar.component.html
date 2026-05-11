@@ -1,0 +1,36 @@
+<aside class="sidebar">
+  <div class="sidebar-top">
+    <div class="brand">
+     <img src="/logo.png" alt="Company Logo" class="brand-logo" />      <div class="brand-text">
+        <span class="company-name">My Company</span>
+      </div>
+    </div>
+  </div>
+
+   
+  <div class="sidebar-divider"></div>
+
+  <nav class="menu">
+    <a
+      *ngFor="let item of menuItems"
+      [routerLink]="item.route"
+      routerLinkActive="active"
+      class="menu-item"
+    >
+      <i [class]="item.icon"></i>
+      <span>{{ item.label | translate }}</span>
+    </a>
+  </nav>
+
+  <div class="bottom-menu">
+    <a class="menu-item" (click)="profile()">
+      <i class="pi pi-user" ></i>
+      <span>{{ 'NAV.PROFILE' | translate }}</span>    
+    </a>
+
+    <a class="menu-item" (click)="logout()">
+      <i class="pi pi-sign-out"></i>
+      <span>{{ 'NAV.LOGOUT' | translate }}</span>
+    </a>
+  </div>
+</aside>

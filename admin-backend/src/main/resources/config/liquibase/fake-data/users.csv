@@ -1,0 +1,2 @@
+id;first_name;last_name;email;password;role_code_ref;status_code_ref;created_at;updated_at
+1;Super;Admin;superadmin@admin.com;$2a$10$VUcKpzK87G7PjfBekT5wsuJLJH5eVAh63O80uk0Du4JMmuYzcjHuS;ROLE_SUPER_ADMIN;STATUS_ACTIVE;2026-05-05 00:00:00;

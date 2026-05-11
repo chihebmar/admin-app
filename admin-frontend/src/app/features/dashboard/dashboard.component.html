@@ -1,0 +1,60 @@
+<div class="dashboard">
+  <div class="dashboard-header">
+    <h1>Dashboard</h1>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon users">
+        <i class="pi pi-users"></i>
+      </div>
+
+      <div>
+        <span>Total users</span>
+        <h2>{{ totalUsers }}</h2>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon active">
+        <i class="pi pi-check-circle"></i>
+      </div>
+
+      <div>
+        <span>Active users</span>
+        <h2>{{ activeUsers }}</h2>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon inactive">
+        <i class="pi pi-times-circle"></i>
+      </div>
+
+      <div>
+        <span>Inactive users</span>
+        <h2>{{ inactiveUsers }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="chart-card">
+    <div class="chart-header">
+      <h3>Users by role</h3>
+      <span>{{ totalUsers }} users</span>
+    </div>
+
+    <div class="bar-list">
+      <div class="bar-row" *ngFor="let item of roleStats">
+        <div class="bar-info">
+          <span>{{ item.label }}</span>
+          <strong>{{ item.count }}</strong>
+        </div>
+
+        <div class="bar-track">
+          <div class="bar-fill" [style.width]="getBarWidth(item.count)"></div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>

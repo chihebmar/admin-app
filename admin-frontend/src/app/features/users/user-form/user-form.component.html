@@ -1,0 +1,43 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="user-form">
+  <div class="form-group">
+    <label>{{ 'FORM.FIRSTNAME' | translate }}</label>
+    <input type="text" formControlName="firstName" />
+  </div>
+
+  <div class="form-group">
+    <label>{{ 'FORM.LASTNAME' | translate }}</label>
+    <input type="text" formControlName="lastName" />
+  </div>
+
+  <div class="form-group">
+    <label>{{ 'FORM.EMAIL' | translate }}</label>
+    <input type="email" formControlName="email" />
+  </div>
+
+  <div class="form-group" *ngIf="mode !== 'view'">
+    <label>
+      {{ mode === 'add' ? ('FORM.PASSWORD' | translate) : ('FORM.PASSWORD' | translate) }}
+    </label>
+    <input type="password" formControlName="password" />
+  </div>
+
+  <div class="form-group">
+    <app-referentiel-select
+      label="FORM.ROLE"
+      codeRefType="ROLE"
+      formControlName="roleCodeRef"
+    ></app-referentiel-select>
+  </div>
+
+  <div class="form-group">
+    <app-referentiel-select
+      label="FORM.STATUS"
+      codeRefType="USER_STATUS"
+      formControlName="statusCodeRef"
+    ></app-referentiel-select>
+  </div>
+
+  <button *ngIf="!readonly" type="submit" class="submit-btn">
+    {{ 'FORM.SAVE' | translate }}
+  </button>
+</form>

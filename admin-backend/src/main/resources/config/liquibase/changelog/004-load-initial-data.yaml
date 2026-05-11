@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-load-initial-data
+      author: chiheb
+      changes:
+        - loadData:
+            file: config/liquibase/fake-data/referentiel_type.csv
+            separator: ;
+            tableName: referentiel_type
+
+        - loadData:
+            file: config/liquibase/fake-data/referentiel.csv
+            separator: ;
+            tableName: referentiel
+
+        - loadData:
+            file: config/liquibase/fake-data/users.csv
+            separator: ;
+            tableName: users

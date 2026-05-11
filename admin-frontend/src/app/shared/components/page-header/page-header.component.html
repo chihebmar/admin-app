@@ -1,0 +1,16 @@
+<div class="page-header">
+  <div>
+    <h1>{{ title }}</h1>
+    <!-- <p>{{ subtitle }}</p> -->
+  </div>
+
+  <button
+    *ngIf="showButton"
+    type="button"
+    class="primary-btn"
+    (click)="buttonClick.emit()"
+  >
+    <i class="pi pi-plus"></i>
+    {{ buttonLabel }}
+  </button>
+</div>

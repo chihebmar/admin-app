@@ -1,0 +1,78 @@
+<div class="table-card">
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{ col.header | translate }}
+          </th>
+
+          <th *ngIf="actions.length > 0" class="actions-header">
+            {{ 'TABLE.ACTIONS' | translate }}
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let row of data; trackBy: trackByRow">
+          <td *ngFor="let col of columns">
+            {{ row[col.field] }}
+          </td>
+
+          <td *ngIf="actions.length > 0" class="actions-cell">
+            <button
+              *ngFor="let action of actions"
+              type="button"
+              class="action-btn"
+              [ngClass]="action.className"
+              (click)="onAction(action.action, row)"
+              [title]="action.label"
+            >
+              <i [class]="action.icon"></i>
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="data.length === 0">
+          <td [attr.colspan]="columns.length + (actions.length > 0 ? 1 : 0)" class="empty">
+            {{ 'TABLE.NO_DATA' | translate }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination" *ngIf="totalElements > 0">
+    <div class="page-size">
+      <span>{{ 'TABLE.ROWS_PER_PAGE' | translate }}</span>
+
+      <select [value]="pageSize" (change)="onPageSizeChange($event)">
+        <option *ngFor="let size of pageSizeOptions" [value]="size">
+          {{ size }}
+        </option>
+      </select>
+    </div>
+
+    <span>
+      {{ 'TABLE.PAGE' | translate }} {{ currentPage }} / {{ totalPages }}
+    </span>
+
+    <div class="pagination-actions">
+      <button
+        type="button"
+        (click)="previousPage()"
+        [disabled]="currentPage <= 1"
+      >
+        {{ 'TABLE.PREVIOUS' | translate }}
+      </button>
+
+      <button
+        type="button"
+        (click)="nextPage()"
+        [disabled]="currentPage >= totalPages"
+      >
+        {{ 'TABLE.NEXT' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-referentiel-type-table
+      author: chiheb
+      changes:
+        - createTable:
+            tableName: referentiel_type
+            columns:
+              - column:
+                  name: code_ref_type
+                  type: VARCHAR(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: label_fr
+                  type: VARCHAR(150)
+
+              - column:
+                  name: label_en
+                  type: VARCHAR(150)
+
+              - column:
+                  name: description
+                  type: VARCHAR(255)

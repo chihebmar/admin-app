@@ -1,0 +1,7 @@
+code_ref;label_fr;label_en;value;active;code_ref_type
+ROLE_SUPER_ADMIN;Super administrateur;Super Administrator;SUPER_ADMIN;true;ROLE
+ROLE_ADMIN;Administrateur;Administrator;ADMIN;true;ROLE
+ROLE_USER;Utilisateur;User;USER;true;ROLE
+STATUS_ACTIVE;Actif;Active;ACTIVE;true;USER_STATUS
+STATUS_INACTIVE;Inactif;Inactive;INACTIVE;true;USER_STATUS
+DOC_PDF;PDF;PDF;PDF;true;DOCUMENT_TYPE

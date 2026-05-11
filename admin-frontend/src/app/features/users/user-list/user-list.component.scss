@@ -1,0 +1,32 @@
+:host {
+  display: block;
+}
+.delete-confirmation {
+  p {
+    margin-bottom: 20px;
+    color: #374151;
+  }
+}
+
+.delete-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancel-btn,
+.delete-btn {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #e5e7eb;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}

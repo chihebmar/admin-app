@@ -1,0 +1,62 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-create-users-table
+      author: chiheb
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+
+              - column:
+                  name: first_name
+                  type: VARCHAR(100)
+
+              - column:
+                  name: last_name
+                  type: VARCHAR(100)
+
+              - column:
+                  name: email
+                  type: VARCHAR(150)
+                  constraints:
+                    unique: true
+
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+
+              - column:
+                  name: role_code_ref
+                  type: VARCHAR(80)
+
+              - column:
+                  name: status_code_ref
+                  type: VARCHAR(80)
+
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+
+        - addForeignKeyConstraint:
+            baseTableName: users
+            baseColumnNames: role_code_ref
+            referencedTableName: referentiel
+            referencedColumnNames: code_ref
+            constraintName: fk_user_role
+
+        - addForeignKeyConstraint:
+            baseTableName: users
+            baseColumnNames: status_code_ref
+            referencedTableName: referentiel
+            referencedColumnNames: code_ref
+            constraintName: fk_user_status

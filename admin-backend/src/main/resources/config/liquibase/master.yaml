@@ -1,0 +1,12 @@
+databaseChangeLog:
+        - include:
+                  file: config/liquibase/changelog/001-create-referentiel-type-table.yaml
+
+        - include:
+                  file: config/liquibase/changelog/002-create-referentiel-table.yaml
+
+        - include:
+                  file: config/liquibase/changelog/003-create-users-table.yaml
+
+        - include:
+                  file: config/liquibase/changelog/004-load-initial-data.yaml

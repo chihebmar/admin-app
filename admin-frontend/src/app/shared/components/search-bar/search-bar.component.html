@@ -1,0 +1,19 @@
+<div class="search-box">
+  <i class="pi pi-search"></i>
+
+  <input
+    type="text"
+    [(ngModel)]="value"
+    [placeholder]="placeholder"
+    (input)="onSearchChange()"
+  />
+
+  <button
+    *ngIf="value"
+    type="button"
+    class="clear-btn"
+    (click)="clearSearch()"
+  >
+    <i class="pi pi-times"></i>
+  </button>
+</div>

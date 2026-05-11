@@ -1,0 +1,4 @@
+code_ref_type;label_fr;label_en;description
+ROLE;Rôle;Role;Types de rôles utilisateurs
+USER_STATUS;Statut utilisateur;User Status;Statuts possibles des utilisateurs
+DOCUMENT_TYPE;Type de document;Document Type;Types des documents PDF

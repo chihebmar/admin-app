@@ -1,0 +1,20 @@
+<div class="form-group">
+  <label *ngIf="label">
+    {{ label | translate }}
+  </label>
+
+  <select
+    [value]="value"
+    [disabled]="disabled"
+    (change)="onSelectChange($event)"
+    (blur)="onTouched()"
+  >
+    <option value="">
+      {{ placeholder | translate }}
+    </option>
+
+    <option *ngFor="let option of options" [value]="option.codeRef">
+      {{ getOptionLabel(option) }}
+    </option>
+  </select>
+</div>

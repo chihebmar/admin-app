@@ -1,0 +1,69 @@
+{
+  "NAV": {
+    "PROFILE": "Profil",
+    "LOGOUT": "Déconnexion"
+  },
+  "SIDEBAR": {
+    "DASHBOARD": "Tableau de bord",
+    "USERS": "Utilisateurs",
+    "DEPARTMENTS": "Départements",
+    "ATTENDANCE": "Présence",
+    "SETTINGS": "Paramétres"
+  },
+  "USERS": {
+    "TITLE": "Gestion des utilisateurs",
+    "SUBTITLE": "Gérer efficacement les utilisateurs de la plateforme",
+    "ADD": "Ajouter utilisateur",
+    "SEARCH": "Rechercher des utilisateurs..."
+  },
+  "TABLE": {
+    "FIRSTNAME": "Prénom",
+    "LASTNAME": "Nom",
+    "EMAIL": "Email",
+    "ROLE": "Role",
+    "STATUS": "Statut",
+    "ACTIONS": "Actions",
+    "NO_DATA": "Aucune donnée trouvée",
+    "ROWS_PER_PAGE": "Lignes par page",
+    "PAGE": "Page",
+    "PREVIOUS": "Précédent",
+    "NEXT": "Suivant"
+  },
+
+  "MODAL": {
+    "ADD_USER": "Ajouter un utilisateur",
+    "EDIT_USER": "Modifier un utilisateur",
+    "DELETE_TITLE": "Supprimer l'utilisateur",
+    "DELETE_MESSAGE": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
+    "VIEW_USER": "Détails utilisateur"
+  },
+
+  "FORM": {
+    "FIRSTNAME": "Prénom",
+    "LASTNAME": "Nom",
+    "EMAIL": "Email",
+    "PASSWORD":"Mot de passe",
+    "ROLE": "Rôle",
+    "STATUS": "Statut",
+    "SAVE": "Enregistrer"
+  },
+  "COMMON": {
+    "CANCEL": "Annuler",
+    "DELETE": "Supprimer",
+    "SELECT": "Select"
+  },
+
+  "LOGIN": {
+    "TITLE": "Connexion Admin",
+    "SUBTITLE": "Connectez-vous pour continuer",
+    "EMAIL": "Email",
+    "PASSWORD": "Mot de passe",
+    "BUTTON": "Se connecter",
+    "ERROR": "Email ou mot de passe invalide"
+  },
+  "PROFILE": {
+  "TITLE": "Informations personnelles",
+  "SUBTITLE": "Consultez les informations de votre compte"
+}
+  
+}

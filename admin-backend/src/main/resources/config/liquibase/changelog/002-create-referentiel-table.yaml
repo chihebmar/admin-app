@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-create-referentiel-table
+      author: chiheb
+      changes:
+        - createTable:
+            tableName: referentiel
+            columns:
+              - column:
+                  name: code_ref
+                  type: VARCHAR(80)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: label_fr
+                  type: VARCHAR(150)
+
+              - column:
+                  name: label_en
+                  type: VARCHAR(150)
+
+              - column:
+                  name: value
+                  type: VARCHAR(255)
+
+              - column:
+                  name: active
+                  type: BOOLEAN
+
+              - column:
+                  name: code_ref_type
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: referentiel
+            baseColumnNames: code_ref_type
+            referencedTableName: referentiel_type
+            referencedColumnNames: code_ref_type
+            constraintName: fk_referentiel_type

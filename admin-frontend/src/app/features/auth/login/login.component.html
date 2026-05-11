@@ -1,0 +1,74 @@
+<div class="login-page">
+  <div class="lang-switch">
+    <button
+      class="lang-circle"
+      [class.active]="currentLang === 'fr'"
+      (click)="switchLanguage('fr')"
+      type="button"
+    >
+      <img src="/flag-fr.webp" alt="French" />
+    </button>
+
+    <button
+      class="lang-circle"
+      [class.active]="currentLang === 'en'"
+      (click)="switchLanguage('en')"
+      type="button"
+    >
+      <img src="/flag-en.webp" alt="English" />
+    </button>
+  </div>
+
+  <form class="login-card" (ngSubmit)="login()">
+    <div class="login-icon">
+      <i class="pi pi-shield"></i>
+    </div>
+
+    <h1>{{ 'LOGIN.TITLE' | translate }}</h1>
+    <p>{{ 'LOGIN.SUBTITLE' | translate }}</p>
+
+    <div class="form-group">
+      <label>{{ 'LOGIN.EMAIL' | translate }}</label>
+
+      <div class="input-field">
+        <i class="pi pi-user"></i>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          [placeholder]="'LOGIN.EMAIL' | translate"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="label-row">
+        <label>{{ 'LOGIN.PASSWORD' | translate }}</label>
+      </div>
+
+      <div class="input-field">
+        <i class="pi pi-key"></i>
+
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          name="password"
+          [(ngModel)]="password"
+          [placeholder]="'LOGIN.PASSWORD' | translate"
+        />
+
+        <button type="button" (click)="togglePassword()">
+          <i [class]="showPassword ? 'pi pi-eye-slash' : 'pi pi-eye'"></i>
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="error">
+      {{ 'LOGIN.ERROR' | translate }}
+    </div>
+
+    <button type="submit" class="login-btn">
+      {{ 'LOGIN.BUTTON' | translate }}
+      <i class="pi pi-arrow-right"></i>
+    </button>
+  </form>
+</div>

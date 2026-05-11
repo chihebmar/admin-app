@@ -1,0 +1,64 @@
+<app-page-header
+  [title]="'USERS.TITLE' | translate"
+  [subtitle]="'USERS.SUBTITLE' | translate"
+  [buttonLabel]="'USERS.ADD' | translate"
+  (buttonClick)="onAddUser()"
+></app-page-header>
+
+<app-search-bar
+  [placeholder]="'USERS.SEARCH' | translate"
+  (searchChange)="onSearch($event)"
+></app-search-bar>
+
+<app-data-table
+  [columns]="columns"
+  [data]="users"
+  [actions]="actions"
+  [pageSize]="pageSize"
+  [currentPage]="currentPage"
+  [totalPages]="totalPages"
+  [totalElements]="totalElements"
+  (pageChange)="onPageChange($event)"
+  (pageSizeChange)="onPageSizeChange($event)"
+  (actionClick)="onAction($event)"
+></app-data-table>
+
+<app-modal
+  [visible]="showUserModal"
+  [title]="
+    (modalMode === 'add'
+      ? 'MODAL.ADD_USER'
+      : modalMode === 'edit'
+      ? 'MODAL.EDIT_USER'
+      : 'MODAL.VIEW_USER'
+    ) | translate
+  "
+  (close)="closeUserModal()"
+>
+<app-user-form
+  [initialData]="selectedUser"
+  [readonly]="modalMode === 'view'"
+  [mode]="modalMode"
+  (submitForm)="handleUserCreate($event)"
+></app-user-form>
+</app-modal>
+
+<app-modal
+  [visible]="showDeleteModal"
+  [title]="'MODAL.DELETE_TITLE' | translate"
+  (close)="closeDeleteModal()"
+>
+  <div class="delete-confirmation">
+    <p>{{ 'MODAL.DELETE_MESSAGE' | translate }}</p>
+
+    <div class="delete-actions">
+      <button class="cancel-btn" type="button" (click)="closeDeleteModal()">
+        {{ 'COMMON.CANCEL' | translate }}
+      </button>
+
+      <button class="delete-btn" type="button" (click)="confirmDelete()">
+        {{ 'COMMON.DELETE' | translate }}
+      </button>
+    </div>
+  </div>
+</app-modal>
