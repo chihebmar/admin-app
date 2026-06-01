@@ -1,0 +1,42 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="partner-form">
+  <div class="form-group">
+    <label>{{ 'PARTNERS.CODE' | translate }}</label>
+    <input type="text" formControlName="code" />
+  </div>
+
+  <div class="form-group">
+    <label>{{ 'PARTNERS.NAME' | translate }}</label>
+    <input type="text" formControlName="name" />
+  </div>
+
+  <div class="form-group">
+    <label>{{ 'PARTNERS.EMAIL' | translate }}</label>
+    <input type="email" formControlName="email" />
+  </div>
+
+  <div class="form-group">
+    <label>{{ 'PARTNERS.PHONE' | translate }}</label>
+    <input type="text" formControlName="phone" />
+  </div>
+
+  <div class="form-group full">
+    <label>{{ 'PARTNERS.ADDRESS' | translate }}</label>
+    <input type="text" formControlName="address" />
+  </div>
+
+  <app-referentiel-select
+    label="PARTNERS.TYPE"
+    codeRefType="PARTNER_TYPE"
+    formControlName="typeCodeRef"
+  ></app-referentiel-select>
+
+  <app-referentiel-select
+    label="PARTNERS.STATUS"
+    codeRefType="PARTNER_STATUS"
+    formControlName="statusCodeRef"
+  ></app-referentiel-select>
+
+  <button *ngIf="!readonly" type="submit" class="submit-btn">
+    {{ 'FORM.SAVE' | translate }}
+  </button>
+</form>

@@ -6,7 +6,8 @@ import { UserListComponent } from './features/users/user-list/user-list.componen
 import { authGuard } from './core/guards/auth.guard';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { ProfileComponent } from './features/profile/profile.component';
-
+import { PermissionManagementComponent } from './features/permissions/permissions.component';
+import { PartnerListComponent } from './features/partners/partner-list/partner-list.component';
 
 export const routes: Routes = [
   {
@@ -32,9 +33,27 @@ export const routes: Routes = [
         component: ProfileComponent,
       },
       {
+        path: 'permissions',
+        component: PermissionManagementComponent,
+      },
+      {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',
+      },
+      {
+        path: 'clients',
+        component: PartnerListComponent,
+        data: {
+          partnerTypeCodeRef: 'PARTNER_TYPE_CLIENT',
+        },
+      },
+      {
+        path: 'suppliers',
+        component: PartnerListComponent,
+        data: {
+          partnerTypeCodeRef: 'PARTNER_TYPE_SUPPLIER',
+        },
       },
     ],
   },

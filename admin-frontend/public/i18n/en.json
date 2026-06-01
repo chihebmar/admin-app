@@ -8,7 +8,8 @@
     "USERS": "Users",
     "DEPARTMENTS": "Departments",
     "ATTENDANCE": "Attendance",
-    "SETTINGS": "Settings"
+    "SETTINGS": "Settings",
+    "PERMISSIONS": "Permission Management"
   },
   "USERS": {
     "TITLE": "Users Management",
@@ -61,5 +62,47 @@
   "PROFILE": {
   "TITLE": "Personal information",
   "SUBTITLE": "View your account information"
+},
+"PERMISSIONS": {
+  "TITLE": "Permission Management",
+  "SUBTITLE": "Manage accessible interfaces by role",
+  "ROLE": "Role",
+  "SELECT_ROLE": "Select a role",
+  "EMPTY": "Please select a role",
+  "SAVED": "Permissions saved successfully"
+},
+"SIDEBAR": {
+  "DASHBOARD": "Dashboard",
+  "USERS": "Users",
+  "PROFILE": "Profile",
+  "PERMISSIONS": "Permissions",
+  "CLIENTS": "Clients",
+  "SUPPLIERS": "Suppliers"
+},
+
+"CLIENTS": {
+  "TITLE": "Client Management",
+  "SUBTITLE": "Manage platform clients",
+  "ADD": "Add client"
+},
+
+"SUPPLIERS": {
+  "TITLE": "Supplier Management",
+  "SUBTITLE": "Manage platform suppliers",
+  "ADD": "Add supplier"
+},
+
+"PARTNERS": {
+  "CODE": "Code",
+  "NAME": "Name",
+  "EMAIL": "Email",
+  "PHONE": "Phone",
+  "ADDRESS": "Address",
+  "TYPE": "Type",
+  "STATUS": "Status",
+  "SEARCH": "Search...",
+  "ADD_MODAL": "Add partner",
+  "EDIT_MODAL": "Edit partner",
+  "VIEW_MODAL": "Partner details"
 }
 }

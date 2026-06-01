@@ -10,3 +10,11 @@ databaseChangeLog:
 
         - include:
                   file: config/liquibase/changelog/004-load-initial-data.yaml
+
+        - include:
+            file: config/liquibase/changelog/005-add-role-interface-permissions.yaml
+
+        - include:
+            file: config/liquibase/changelog/006-create-partner-module.yaml
+        - include:
+            file: config/liquibase/changelog/007-add-partner-interfaces.yaml

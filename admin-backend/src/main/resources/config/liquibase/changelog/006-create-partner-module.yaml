@@ -1,0 +1,190 @@
+databaseChangeLog:
+  - changeSet:
+      id: 006-01-add-partner-referentiel-types
+      author: ahlem
+      changes:
+        - insert:
+            tableName: referentiel_type
+            columns:
+              - column:
+                  name: code_ref_type
+                  value: PARTNER_TYPE
+              - column:
+                  name: label_fr
+                  value: Type tiers
+              - column:
+                  name: label_en
+                  value: Partner type
+              - column:
+                  name: description
+                  value: Client or supplier type
+
+        - insert:
+            tableName: referentiel_type
+            columns:
+              - column:
+                  name: code_ref_type
+                  value: PARTNER_STATUS
+              - column:
+                  name: label_fr
+                  value: Statut tiers
+              - column:
+                  name: label_en
+                  value: Partner status
+              - column:
+                  name: description
+                  value: Partner status
+
+  - changeSet:
+      id: 006-02-add-partner-referentiels
+      author: ahlem
+      changes:
+        - insert:
+            tableName: referentiel
+            columns:
+              - column:
+                  name: code_ref
+                  value: PARTNER_TYPE_CLIENT
+              - column:
+                  name: label_fr
+                  value: Client
+              - column:
+                  name: label_en
+                  value: Customer
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: code_ref_type
+                  value: PARTNER_TYPE
+
+        - insert:
+            tableName: referentiel
+            columns:
+              - column:
+                  name: code_ref
+                  value: PARTNER_TYPE_SUPPLIER
+              - column:
+                  name: label_fr
+                  value: Fournisseur
+              - column:
+                  name: label_en
+                  value: Supplier
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: code_ref_type
+                  value: PARTNER_TYPE
+
+        - insert:
+            tableName: referentiel
+            columns:
+              - column:
+                  name: code_ref
+                  value: PARTNER_STATUS_ACTIVE
+              - column:
+                  name: label_fr
+                  value: Actif
+              - column:
+                  name: label_en
+                  value: Active
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: code_ref_type
+                  value: PARTNER_STATUS
+
+        - insert:
+            tableName: referentiel
+            columns:
+              - column:
+                  name: code_ref
+                  value: PARTNER_STATUS_INACTIVE
+              - column:
+                  name: label_fr
+                  value: Inactif
+              - column:
+                  name: label_en
+                  value: Inactive
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: code_ref_type
+                  value: PARTNER_STATUS
+
+  - changeSet:
+      id: 006-03-create-partner-table
+      author: ahlem
+      changes:
+        - createTable:
+            tableName: partner
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: code
+                  type: VARCHAR(80)
+                  constraints:
+                    nullable: false
+                    unique: true
+
+              - column:
+                  name: name
+                  type: VARCHAR(150)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: email
+                  type: VARCHAR(150)
+
+              - column:
+                  name: phone
+                  type: VARCHAR(50)
+
+              - column:
+                  name: address
+                  type: VARCHAR(255)
+
+              - column:
+                  name: type_code_ref
+                  type: VARCHAR(80)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: status_code_ref
+                  type: VARCHAR(80)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+
+        - addForeignKeyConstraint:
+            baseTableName: partner
+            baseColumnNames: type_code_ref
+            constraintName: fk_partner_type
+            referencedTableName: referentiel
+            referencedColumnNames: code_ref
+
+        - addForeignKeyConstraint:
+            baseTableName: partner
+            baseColumnNames: status_code_ref
+            constraintName: fk_partner_status
+            referencedTableName: referentiel
+            referencedColumnNames: code_ref

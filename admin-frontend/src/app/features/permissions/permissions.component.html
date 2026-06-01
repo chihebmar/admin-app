@@ -1,0 +1,54 @@
+<div class="permissions-page">
+  <div class="page-header">
+    <div>
+      <h1>{{ 'PERMISSIONS.TITLE' | translate }}</h1>
+      <!-- <p>{{ 'PERMISSIONS.SUBTITLE' | translate }}</p> -->
+    </div>
+  </div>
+
+  <div class="permissions-card">
+    <div class="role-selector">
+      <app-referentiel-select
+        label="TABLE.ROLE"
+        codeRefType="ROLE"
+        placeholder="PERMISSIONS.SELECT_ROLE"
+        (ngModelChange)="onRoleChange($event)"
+        [(ngModel)]="selectedRole"
+      ></app-referentiel-select>
+    </div>
+
+    <div class="interfaces-list" *ngIf="selectedRole">
+      <div class="interface-row" *ngFor="let item of interfaces">
+        <div class="interface-info">
+    
+          <div>
+            <strong>{{ getInterfaceLabel(item) }}</strong>
+          </div>
+        </div>
+
+        <label class="switch">
+          <input
+            type="checkbox"
+            [checked]="isChecked(item.codeRef)"
+            (change)="toggleInterface(item.codeRef, $event)"
+          />
+          <span></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="empty-state" *ngIf="!selectedRole">
+      {{ 'PERMISSIONS.EMPTY' | translate }}
+    </div>
+
+    <div class="actions" *ngIf="selectedRole">
+      <span class="success" *ngIf="saved">
+        {{ 'PERMISSIONS.SAVED' | translate }}
+      </span>
+
+      <button type="button" (click)="save()">
+        {{ 'COMMON.SAVE' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

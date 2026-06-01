@@ -1,0 +1,62 @@
+<app-page-header
+  [title]="titleKey | translate"
+  [subtitle]="subtitleKey | translate"
+  [buttonLabel]="addButtonKey | translate"
+  (buttonClick)="onAddPartner()"
+></app-page-header>
+
+<app-search-bar
+  [placeholder]="'PARTNERS.SEARCH' | translate"
+  (searchChange)="onSearch($event)"
+></app-search-bar>
+
+<app-data-table
+  [columns]="columns"
+  [data]="partners"
+  [actions]="actions"
+  [pageSize]="10"
+  [currentPage]="1"
+  [totalPages]="1"
+  [totalElements]="partners.length"
+  (actionClick)="onAction($event)"
+></app-data-table>
+
+<app-modal
+  [visible]="showPartnerModal"
+  [title]="
+    (modalMode === 'add'
+      ? 'PARTNERS.ADD_MODAL'
+      : modalMode === 'edit'
+      ? 'PARTNERS.EDIT_MODAL'
+      : 'PARTNERS.VIEW_MODAL'
+    ) | translate
+  "
+  (close)="closePartnerModal()"
+>
+  <app-partner-form
+    [initialData]="selectedPartner"
+    [readonly]="modalMode === 'view'"
+    [forcedTypeCodeRef]="partnerTypeCodeRef"
+    (submitForm)="handlePartnerSubmit($event)"
+  ></app-partner-form>
+</app-modal>
+
+<app-modal
+  [visible]="showDeleteModal"
+  [title]="'MODAL.DELETE_TITLE' | translate"
+  (close)="closeDeleteModal()"
+>
+  <div class="delete-confirmation">
+    <p>{{ 'MODAL.DELETE_MESSAGE' | translate }}</p>
+
+    <div class="delete-actions">
+      <button class="cancel-btn" type="button" (click)="closeDeleteModal()">
+        {{ 'COMMON.CANCEL' | translate }}
+      </button>
+
+      <button class="delete-btn" type="button" (click)="confirmDelete()">
+        {{ 'COMMON.DELETE' | translate }}
+      </button>
+    </div>
+  </div>
+</app-modal>

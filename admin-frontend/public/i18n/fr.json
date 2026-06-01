@@ -8,7 +8,8 @@
     "USERS": "Utilisateurs",
     "DEPARTMENTS": "Départements",
     "ATTENDANCE": "Présence",
-    "SETTINGS": "Paramétres"
+    "SETTINGS": "Paramétres",
+    "PERMISSIONS": "Gestion des permissions"
   },
   "USERS": {
     "TITLE": "Gestion des utilisateurs",
@@ -64,6 +65,52 @@
   "PROFILE": {
   "TITLE": "Informations personnelles",
   "SUBTITLE": "Consultez les informations de votre compte"
+},
+
+"PERMISSIONS": {
+  "TITLE": "Gestion des permissions",
+  "SUBTITLE": "Gérer les interfaces accessibles par rôle",
+  "ROLE": "Rôle",
+  "SELECT_ROLE": "Sélectionner un rôle",
+  "EMPTY": "Veuillez sélectionner un rôle",
+  "SAVED": "Permissions enregistrées avec succès"
+},
+"SIDEBAR": {
+  "DASHBOARD": "Tableau de bord",
+  "USERS": "Utilisateurs",
+  "PROFILE": "Profil",
+  "PERMISSIONS": "Permissions",
+  "CLIENTS": "Clients",
+  "SUPPLIERS": "Fournisseurs"
+},
+
+"CLIENTS": {
+  "TITLE": "Gestion des clients",
+  "SUBTITLE": "Gérer les clients de la plateforme",
+  "ADD": "Ajouter un client"
+},
+
+"SUPPLIERS": {
+  "TITLE": "Gestion des fournisseurs",
+  "SUBTITLE": "Gérer les fournisseurs de la plateforme",
+  "ADD": "Ajouter un fournisseur"
+},
+
+"PARTNERS": {
+  "CODE": "Code",
+  "NAME": "Nom",
+  "EMAIL": "Email",
+  "PHONE": "Téléphone",
+  "ADDRESS": "Adresse",
+  "TYPE": "Type",
+  "STATUS": "Statut",
+  "SEARCH": "Rechercher...",
+  "ADD_MODAL": "Ajouter un tiers",
+  "EDIT_MODAL": "Modifier un tiers",
+  "VIEW_MODAL": "Détails du tiers"
 }
+
+
+
   
 }

@@ -1,0 +1,240 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005-01-add-interface-referentiel-type
+      author: chiheb
+      changes:
+        - insert:
+            tableName: referentiel_type
+            columns:
+              - column:
+                  name: code_ref_type
+                  value: INTERFACE
+              - column:
+                  name: label_fr
+                  value: Interface
+              - column:
+                  name: label_en
+                  value: Interface
+              - column:
+                  name: description
+                  value: Application interfaces
+
+  - changeSet:
+      id: 005-02-add-interface-referentiels
+      author: chiheb
+      changes:
+        - insert:
+            tableName: referentiel
+            columns:
+              - column:
+                  name: code_ref
+                  value: INTERFACE_DASHBOARD
+              - column:
+                  name: label_fr
+                  value: Tableau de bord
+              - column:
+                  name: label_en
+                  value: Dashboard
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: code_ref_type
+                  value: INTERFACE
+
+        - insert:
+            tableName: referentiel
+            columns:
+              - column:
+                  name: code_ref
+                  value: INTERFACE_USERS
+              - column:
+                  name: label_fr
+                  value: Utilisateurs
+              - column:
+                  name: label_en
+                  value: Users
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: code_ref_type
+                  value: INTERFACE
+
+        - insert:
+            tableName: referentiel
+            columns:
+              - column:
+                  name: code_ref
+                  value: INTERFACE_PROFILE
+              - column:
+                  name: label_fr
+                  value: Profil
+              - column:
+                  name: label_en
+                  value: Profile
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: code_ref_type
+                  value: INTERFACE
+
+        - insert:
+            tableName: referentiel
+            columns:
+              - column:
+                  name: code_ref
+                  value: INTERFACE_PERMISSIONS
+              - column:
+                  name: label_fr
+                  value: permissions
+              - column:
+                  name: label_en
+                  value: permissions
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: code_ref_type
+                  value: INTERFACE
+
+  - changeSet:
+      id: 005-03-create-role-interface-table
+      author: chiheb
+      changes:
+        - createTable:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: role_code_ref
+                  type: VARCHAR(80)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: interface_code_ref
+                  type: VARCHAR(80)
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: role_interface
+            baseColumnNames: role_code_ref
+            constraintName: fk_role_interface_role
+            referencedTableName: referentiel
+            referencedColumnNames: code_ref
+
+        - addForeignKeyConstraint:
+            baseTableName: role_interface
+            baseColumnNames: interface_code_ref
+            constraintName: fk_role_interface_interface
+            referencedTableName: referentiel
+            referencedColumnNames: code_ref
+
+        - addUniqueConstraint:
+            tableName: role_interface
+            columnNames: role_code_ref, interface_code_ref
+            constraintName: uk_role_interface
+
+  - changeSet:
+      id: 005-04-seed-role-interface
+      author: chiheb
+      changes:
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_SUPER_ADMIN
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_DASHBOARD
+
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_SUPER_ADMIN
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_PERMISSIONS
+
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_SUPER_ADMIN
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_USERS
+
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_SUPER_ADMIN
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_PROFILE
+
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_ADMIN
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_DASHBOARD
+
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_ADMIN
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_USERS
+
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_ADMIN
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_PROFILE
+
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_USER
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_DASHBOARD
+
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_USER
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_PROFILE

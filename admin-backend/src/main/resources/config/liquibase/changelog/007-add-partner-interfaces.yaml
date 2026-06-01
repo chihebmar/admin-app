@@ -1,0 +1,86 @@
+databaseChangeLog:
+  - changeSet:
+      id: 007-01-add-partner-interfaces
+      author: chiheb
+      changes:
+        - insert:
+            tableName: referentiel
+            columns:
+              - column:
+                  name: code_ref
+                  value: INTERFACE_CLIENTS
+              - column:
+                  name: label_fr
+                  value: Clients
+              - column:
+                  name: label_en
+                  value: Clients
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: code_ref_type
+                  value: INTERFACE
+
+        - insert:
+            tableName: referentiel
+            columns:
+              - column:
+                  name: code_ref
+                  value: INTERFACE_SUPPLIERS
+              - column:
+                  name: label_fr
+                  value: Fournisseurs
+              - column:
+                  name: label_en
+                  value: Suppliers
+              - column:
+                  name: active
+                  valueBoolean: true
+              - column:
+                  name: code_ref_type
+                  value: INTERFACE
+
+  - changeSet:
+      id: 007-02-add-partner-interface-permissions
+      author: chiheb
+      changes:
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_SUPER_ADMIN
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_CLIENTS
+
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_SUPER_ADMIN
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_SUPPLIERS
+
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_ADMIN
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_CLIENTS
+
+        - insert:
+            tableName: role_interface
+            columns:
+              - column:
+                  name: role_code_ref
+                  value: ROLE_ADMIN
+              - column:
+                  name: interface_code_ref
+                  value: INTERFACE_SUPPLIERS
